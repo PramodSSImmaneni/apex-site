@@ -150,6 +150,53 @@ mkdir svn-dist && cp *-source-* svn-dist/
 svn import svn-dist https://dist.apache.org/repos/dist/dev/apex/${RNAME}-RC1 -m "Apache Apex v${rv}-RC1"
 ```
 
+## Build and Deploy Documentation
+
+The documentation will be generated as static HTML files and copied into the ```apex-site``` repository. It will be available at an alternate URL location until the release is promoted, at which time it will also be promoted to the main website location.
+
+Do the following setup steps before building and deploying the documentation. 
+
+1. Clone the apex-site repository into a folder called ```apex-site``` at the same level as the current repository. 
+
+2. Set the following environment variables.
+
+	For -core releases:
+
+	```
+	REPO_NAME=apex-core
+	DOC_NAME=apex
+	```
+
+	For -malhar releases:
+	
+	```
+	REPO_NAME=apex-malhar
+	DOC_NAME=malhar
+	```
+	
+	The `REPO_NAME` variable above should match the folder name of the cloned apex module being built.
+
+To build and deploy the documentation, execute the following commands in the apex module folder specified in `REPO_NAME` above. **Note**: Until [mkdocs #859](https://github.com/mkdocs/mkdocs/issues/859) is resolved and available for download, use mkdocs built against [master](https://github.com/mkdocs/mkdocs).
+
+```bash
+# build docs, they would be generated in the site folder
+mkdocs build --clean
+
+# copy docs from site into target folder on apex-site
+cd ../apex-site
+git checkout asf-site
+rm -rf docs/${DOC_NAME}-${rv}
+cp -r ../${REPO_NAME}/site docs/${DOC_NAME}-${rv}
+git add -A
+git commit -m "Adding ${DOC_NAME}-${rv} documentation"
+git push
+```
+
+The documentation is now available at the URL
+```
+https://apex.apache.org/docs/${DOC_NAME}-${rv}/
+```
+
 ## Voting 
 
 Vote call sample:
@@ -200,6 +247,29 @@ git commit -am "Preparing for 3.4.1 development"
 git push apache
 ```
 Merge `@since` tag and change log changes to `master`.
+
+### Documentation
+
+The documentation promotion is done in two steps. First the release documentation component is made the latest and then the remaining website documentation is deployed.
+
+1. In the apex-site folder from the build run the following commands to update the release documentation to be the latest for that major.minor version and also make it the latest on the website
+
+```bash
+rv=3.4.0
+# Calculate the major.minor version
+docv=`echo ${rv} | sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\)/\1\.\2/'`
+cd docs
+# Make it the latest documentation for the major.minor version
+rm -rf ${DOC_NAME}-${docv}
+mv ${DOC_NAME}-${rv} ${DOC_NAME}-${docv}
+# Set the release version to be the latest available version
+ln -nsf ${DOC_NAME}-${docv} ${DOC_NAME}
+git add -A
+git commit -m "Promoting ${DOC_NAME}-${rv} documentation"
+git push
+```
+
+2. Refer to the documentation in [apex-site repository](https://github.com/apache/apex-site#contributing) to add any new links to the [docs.md](https://github.com/apache/apex-site/blob/master/src/md/docs.md) page, follow the committer steps to commit and push these changes, and deploy the site.
 
 ## Announce Release
 
