@@ -13,6 +13,16 @@
     <!-- Main Stylesheet -->
     <link href="css/main.css" rel="stylesheet">
 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-85540278-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
   </head>
 
   <body>
@@ -38,32 +48,38 @@
             <a class="nav-link " href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/announcements.html">Announcements</a>
+            <a class="nav-link " href="/docs.html">Documentation</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/community.html">Community</a>
+            <a class="nav-link " href="/powered-by-apex.html">Powered By Apex</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/docs.html">Docs</a>
+            <a class="nav-link " href="/roadmap.html">Roadmap</a>
           </li>
-          <li class="nav-item">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link">Source<b class="caret"></b></a>
-             <ul class="dropdown-menu">
-              <li><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-core.git">Apex Core (ASF)</a></li>
-              <li><a href="https://github.com/apache/apex-core">Apex Core (Github Mirror)</a></li>
-              <li><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-malhar.git">Apex Malhar (ASF)</a></li>
-              <li><a href="https://github.com/apache/apex-malhar">Apex Malhar (Github Mirror)</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link">Apache<b class="caret"></b></a>
-             <ul class="dropdown-menu">
-              <li><a href="http://www.apache.org/foundation/how-it-works.html">Apache Foundation</a></li>
-              <li><a href="http://www.apache.org/licenses/">Apache License</a></li>
-              <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
-              <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            </ul>
-          </li>
+
+            <li class="nav-item nav-mouseover">
+              <ul class="dropdown-menu">
+                <li class=""><a href="/community.html#mailing-lists">Mailing Lists</a></li>
+                <li class=""><a href="/community.html#issue-tracking">Issue Tracking</a></li>
+                <li class=""><a href="http://stackoverflow.com/questions/tagged/apache-apex">Stack Overflow</a></li>
+                <li class=""><a href="/community.html#events">Events</a></li>
+                <li class=""><a href="/community.html#contributing">Contributing</a></li>
+                <li class=""><a href="http://www.apache.org/foundation/how-it-works.html">Apache Foundation</a></li>
+              </ul>
+              <a href="/community.html" class="nav-link">Community</a>
+            </li>
+          
+
+            <li class="nav-item nav-mouseover">
+              <ul class="dropdown-menu">
+                <li class=""><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-core.git">Apex Core (ASF)</a></li>
+                <li class=""><a href="https://github.com/apache/apex-core">Apex Core (Github Mirror)</a></li>
+                <li class=""><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-malhar.git">Apex Malhar (ASF)</a></li>
+                <li class=""><a href="https://github.com/apache/apex-malhar">Apex Malhar (Github Mirror)</a></li>
+              </ul>
+              <a href="https://github.com/apache/apex-core" class="nav-link">Github</a>
+            </li>
+          
           <li class="nav-item">
             <a class="nav-link btn btn-success" href="/downloads.html">Download</a>
           </li>
@@ -94,10 +110,11 @@ for a in `git grep -l &quot;${dv}&quot;`; do echo $a; sed -i &#39;s/&#39;&quot;$
 <p>For -malhar:</p>
 <pre><code>mvn versions:set -DnewVersion=${rv} -Pall-modules
 </code></pre><p>Commit and push the change:</p>
-<pre><code>git commit -am &quot;Preparing for 3.5.0 development&quot;
+<pre><code>git commit --author &quot;Apex Dev &lt;dev@apex.apache.org&gt;&quot; -am &quot;Preparing for 3.5.0 development&quot;
 git push apache master
 </code></pre><h2 id="preparing-release-candidate">Preparing Release Candidate</h2>
-<h3 id="add-missing-since-tags">Add missing @since tags</h3>
+<pre><code>git checkout release-3.4
+</code></pre><h3 id="add-missing-since-tags">Add missing @since tags</h3>
 <p>For Java classes added since the last release, the @since tags need to be added. The javadoc plugin inserts missing tags, but does not play well with the license header when no class level documentation block is present. This is tracked as</p>
 <p><a href="https://issues.apache.org/jira/browse/APEXCORE-183">https://issues.apache.org/jira/browse/APEXCORE-183</a></p>
 <p>It also removes the custom @tags doclet tag when the existing JavaDoc is malformed, <strong>do not use this to make changes in Malhar</strong>. Until these problems are resolved, use the following Ruby script to do the replacement: <a href="https://issues.apache.org/jira/secure/attachment/12781158/add-since.rb">https://issues.apache.org/jira/secure/attachment/12781158/add-since.rb</a></p>
@@ -111,7 +128,7 @@ git push apache master
 <p>Create shortlink for the JIRA release notes on <a href="http://s.apache.org/">http://s.apache.org/</a> for use in the VOTE thread. 
 Example: <a href="http://s.apache.org/8uT">http://s.apache.org/8uT</a></p>
 <p>Commit tags and change log:</p>
-<pre><code>git commit -am &quot;Add @since tags and update change log for release 3.4.0&quot;
+<pre><code>git commit --author &quot;Apex Dev &lt;dev@apex.apache.org&gt;&quot; -am &quot;Add @since tags and update change log for release 3.4.0&quot;
 </code></pre><h3 id="update-version-number-for-rc">Update version number for RC</h3>
 <pre><code>dv=3.4.0-SNAPSHOT
 rv=3.4.0
@@ -120,7 +137,7 @@ rv=3.4.0
 </code></pre><p>And this for -malhar releases:</p>
 <pre><code>mvn versions:set -Pall-modules -DnewVersion=${rv}
 </code></pre><p>Commit version change:</p>
-<pre><code>git commit -am &quot;Preparing to release ${rv}-RC1&quot;
+<pre><code>git commit --author &quot;Apex Dev &lt;dev@apex.apache.org&gt;&quot; -am &quot;Preparing to release ${rv}-RC1&quot;
 git tag -a &quot;v${rv}-RC1&quot; -m &quot;Release ${rv}-RC1&quot;
 </code></pre><p>Push to fork (as temporary branch), open pull request, wait for Travis CI build to succeed. Then push the tag.</p>
 <pre><code>git push apache &quot;v${rv}-RC1&quot;
@@ -158,6 +175,41 @@ gpg --yes --armor --output ${RNAME}-source-release.zip.asc --detach-sig ${RNAME}
 <pre><code class="lang-bash">mkdir svn-dist &amp;&amp; cp *-source-* svn-dist/
 svn import svn-dist https://dist.apache.org/repos/dist/dev/apex/${RNAME}-RC1 -m &quot;Apache Apex v${rv}-RC1&quot;
 </code></pre>
+<h2 id="build-and-deploy-documentation">Build and Deploy Documentation</h2>
+<p>The documentation will be generated as static HTML files into the <code>apex-site</code> repository, <a href="https://github.com/apache/apex-site/tree/asf-site/docs">separated by version (X.Y)</a>.</p>
+<p><strong>Note</strong> You need Python 2.7+ and <a href="http://www.mkdocs.org/">mkdocs</a> with patch for issue <a href="https://github.com/mkdocs/mkdocs/issues/859">mkdocs #859</a> on top of the currently available version 0.15.3. After installing mkdocs with pip, run the following to obtain this build:</p>
+<pre><code>sudo pip install --upgrade git+https://github.com/sashadt/mkdocs.git
+</code></pre><p>Do the following setup steps before building and deploying the documentation. </p>
+<ol>
+<li><p>Clone the apex-site repository into a folder called <code>apex-site</code> at the same level as the current repository. </p>
+</li>
+<li><p>Set the following environment variables.</p>
+<p> For -core releases:</p>
+<pre><code> REPO_NAME=apex-core
+ DOC_NAME=apex
+</code></pre><p> For -malhar releases:</p>
+<pre><code> REPO_NAME=apex-malhar
+ DOC_NAME=malhar
+</code></pre><p> The <code>REPO_NAME</code> variable above should match the folder name of the cloned apex module being built.</p>
+</li>
+</ol>
+<p>Build and deploy the documentation in the release directory:</p>
+<pre><code class="lang-bash"># build docs in ${REPO_NAME}, they will be generated in a site sub-folder
+mkdocs build --clean
+
+# Calculate the major.minor version
+docv=`echo ${rv} | sed &#39;s/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\)/\1\.\2/&#39;`
+
+# copy docs from site folder into target folder on apex-site
+cd ../apex-site
+git checkout asf-site
+rm -rf docs/${DOC_NAME}-${docv}
+cp -r ../${REPO_NAME}/site docs/${DOC_NAME}-${docv}
+git add -A
+git commit --author &quot;Apex Dev &lt;dev@apex.apache.org&gt;&quot; -m &quot;Adding ${DOC_NAME}-${rv} documentation&quot;
+git push
+</code></pre>
+<p>After <a href="https://github.com/apache/apex-site/tree/master#contributing">publishing the site</a> the new documentation will be available at <code>https://apex.apache.org/docs/${DOC_NAME}-${docv}/</code></p>
 <h2 id="voting">Voting</h2>
 <p>Vote call sample:
 <a href="http://mail-archives.apache.org/mod_mbox/apex-dev/201605.mbox/%3CCAKJfLDPr3CBCfstQJWjchG-ZEYw5P%2Bwv5jN0tfy3EL%2BU%3DBUQgQ%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/apex-dev/201605.mbox/%3CCAKJfLDPr3CBCfstQJWjchG-ZEYw5P%2Bwv5jN0tfy3EL%2BU%3DBUQgQ%40mail.gmail.com%3E</a></p>
@@ -188,10 +240,26 @@ for a in `git grep -l &quot;${dv}&quot;`; do echo $a; sed -i &#39;s/&#39;&quot;$
 <p>If there are new artifacts published to Maven repositories consider enabling semantic versioning check for the newly
 published libraries.</p>
 <p>Commit all changes and push them to the remote git repository:</p>
-<pre><code class="lang-bash">git commit -am &quot;Preparing for 3.4.1 development&quot;
+<pre><code class="lang-bash">git commit --author &quot;Apex Dev &lt;dev@apex.apache.org&gt;&quot; -am &quot;Preparing for 3.4.1 development&quot;
 git push apache
 </code></pre>
 <p>Merge <code>@since</code> tag and change log changes to <code>master</code>.</p>
+<h3 id="documentation">Documentation</h3>
+<p>There two steps in promotion. The documentation built during the build step above is made available on the website and then any changes to the rest of the website are deployed.</p>
+<ol>
+<li>If this is a new minor or a major release, under the <code>apex-site</code> folder, run the following commands to point the website to the release documentation folder, otherwise it is a patch release and this step can be skipped as the documentation is already reflected in the website.</li>
+</ol>
+<pre><code class="lang-bash"># docv major.minor version calculated in the build step
+cd docs
+# Set the release version to be the latest available version
+ln -nsf ${DOC_NAME}-${docv} ${DOC_NAME}
+git add -A
+git commit --author &quot;Apex Dev &lt;dev@apex.apache.org&gt;&quot; -m &quot;Promoting ${DOC_NAME}-${docv} documentation&quot;
+git push
+</code></pre>
+<ol>
+<li>Refer to the documentation in <a href="https://github.com/apache/apex-site#contributing">apex-site repository</a> to add any new links to the <a href="https://github.com/apache/apex-site/blob/master/src/md/docs.md">docs.md</a> page, follow the committer steps to commit and push these changes, and deploy the site.</li>
+</ol>
 <h2 id="announce-release">Announce Release</h2>
 <p>For minor or major release, publish the documentation to the web site prior to updating download page (which will automatically link the documentation). See <a href="https://github.com/apache/apex-core/tree/master/docs#deployment">https://github.com/apache/apex-core/tree/master/docs#deployment</a></p>
 <p>Update the download page to reflect the new release: <a href="https://github.com/apache/apex-site#updating-downloads-page">https://github.com/apache/apex-site#updating-downloads-page</a></p>
@@ -210,7 +278,7 @@ git push apache
       <p>
         Copyright &copy; <span id="copyright-year">2015</span> <a href="http://apache.org">The Apache Software Foundation</a>,
         Licensed under the Apache License, Version 2.0<br>
-        Apache and the Apache feather logo are trademarks of The Apache Software Foundation.<br>
+        Apache and the Apache feather logo are trademarks of The Apache Software Foundation. | <a href="/privacy.html">Privacy Policy</a><br>
         <a class="footer-link-img" href="http://apache.org"><img src="/images/asf_logo.svg" alt="The Apache Software Foundation"></a>
       </p>
     </footer>
@@ -219,6 +287,8 @@ git push apache
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
+  <script src="js/docs.js"></script>
+
   <script>
     $('#copyright-year').text((new Date()).getFullYear());
   </script>

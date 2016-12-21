@@ -13,6 +13,16 @@
     <!-- Main Stylesheet -->
     <link href="css/main.css" rel="stylesheet">
 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-85540278-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
   </head>
 
   <body>
@@ -38,32 +48,38 @@
             <a class="nav-link " href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/announcements.html">Announcements</a>
+            <a class="nav-link " href="/docs.html">Documentation</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/community.html">Community</a>
+            <a class="nav-link " href="/powered-by-apex.html">Powered By Apex</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/docs.html">Docs</a>
+            <a class="nav-link " href="/roadmap.html">Roadmap</a>
           </li>
-          <li class="nav-item">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link">Source<b class="caret"></b></a>
-             <ul class="dropdown-menu">
-              <li><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-core.git">Apex Core (ASF)</a></li>
-              <li><a href="https://github.com/apache/apex-core">Apex Core (Github Mirror)</a></li>
-              <li><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-malhar.git">Apex Malhar (ASF)</a></li>
-              <li><a href="https://github.com/apache/apex-malhar">Apex Malhar (Github Mirror)</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link">Apache<b class="caret"></b></a>
-             <ul class="dropdown-menu">
-              <li><a href="http://www.apache.org/foundation/how-it-works.html">Apache Foundation</a></li>
-              <li><a href="http://www.apache.org/licenses/">Apache License</a></li>
-              <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
-              <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            </ul>
-          </li>
+
+            <li class="nav-item nav-mouseover">
+              <ul class="dropdown-menu">
+                <li class=""><a href="/community.html#mailing-lists">Mailing Lists</a></li>
+                <li class=""><a href="/community.html#issue-tracking">Issue Tracking</a></li>
+                <li class=""><a href="http://stackoverflow.com/questions/tagged/apache-apex">Stack Overflow</a></li>
+                <li class=""><a href="/community.html#events">Events</a></li>
+                <li class=""><a href="/community.html#contributing">Contributing</a></li>
+                <li class=""><a href="http://www.apache.org/foundation/how-it-works.html">Apache Foundation</a></li>
+              </ul>
+              <a href="/community.html" class="nav-link">Community</a>
+            </li>
+          
+
+            <li class="nav-item nav-mouseover">
+              <ul class="dropdown-menu">
+                <li class=""><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-core.git">Apex Core (ASF)</a></li>
+                <li class=""><a href="https://github.com/apache/apex-core">Apex Core (Github Mirror)</a></li>
+                <li class=""><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-malhar.git">Apex Malhar (ASF)</a></li>
+                <li class=""><a href="https://github.com/apache/apex-malhar">Apex Malhar (Github Mirror)</a></li>
+              </ul>
+              <a href="https://github.com/apache/apex-core" class="nav-link">Github</a>
+            </li>
+          
           <li class="nav-item">
             <a class="nav-link btn btn-success" href="/downloads.html">Download</a>
           </li>
@@ -77,12 +93,13 @@
   <h1 id="powered-by-apache-apex">Powered by Apache Apex</h1>
 <p>This page lists organizations and software projects which work with Apache Apex. To be added to this page email users@apex.apache.org mailing list, or send a message to the @ApacheApex twitter account.</p>
 <h2 id="companies">Companies</h2>
-<p>Apache Apex powers</p>
+<p>Apex powers</p>
 <ul>
-<li>GE</li>
-<li>Capital One</li>
-<li>Silver Spring Networks</li>
-<li>PubMatic</li>
+<li>GE - use case presentation <a href="http://www.slideshare.net/ApacheApex/ge-iot-predix-time-series-data-ingestion-service-using-apache-apex-hadoop">slides</a> and <a href="https://www.youtube.com/watch?v=hmaSkXhHNu0">video</a> </li>
+<li>Capital One - use case presentation <a href="http://www.slideshare.net/ApacheApex/capital-ones-next-generation-decision-in-less-than-2-ms">slides</a> and <a href="https://www.youtube.com/watch?v=98EW5NGM3u0">video</a> </li>
+<li>Silver Spring Networks - use case presentation <a href="http://www.slideshare.net/ApacheApex/iot-big-data-ingestion-and-processing-in-hadoop-by-silver-spring-networks">slides</a> and <a href="https://www.youtube.com/watch?v=8VORISKeSjI">video</a></li>
+<li>PubMatic - use case presentation <a href="https://www.youtube.com/watch?v=JSXpgfQFcU8">video</a></li>
+<li>Xavient - Blog on <a href="https://techblog.xavient.com/real-time-data-ingestion-dip-apache-apex-co-dev-opportunity/"> Real Time Data Ingestion</a></li>
 <li>ThreatMetrix</li>
 <li>FacilitiesSupplies</li>
 <li>DataTorrent</li>
@@ -92,9 +109,17 @@
 <li>MammothData</li>
 <li>CloudWick</li>
 <li>Synerzip</li>
+<li>Trace3</li>
+<li>LeadFerret</li>
+<li>Target</li>
+<li>geniSIGHTS</li>
+<li>Aaum Analytics</li>
+<li>Genius Minds</li>
+<li>Fidelity National Information Services Inc (FIS Global)</li>
+<li>Oraxi</li>
 </ul>
-<h2 id="software-integrations">Software Integrations</h2>
-<p>Apache Apex integrates with</p>
+<h2 id="integrations">Integrations</h2>
+<p>Apex integrates with</p>
 <ul>
 <li>Apache Beam</li>
 <li>Apache SAMOA</li>
@@ -124,12 +149,14 @@
 <li>ElasticSearch</li>
 </ul>
 <h2 id="universities-research-institutes">Universities &amp; Research Institutes</h2>
-<p>Apache Apex is under research at</p>
+<p>Apex is being used in research projects at</p>
 <ul>
 <li>University of California San Diego</li>
 <li>Dresden University of Technology</li>
 <li>Delft University of Technology</li>
 <li>Pune Institute of Computer Technology</li>
+<li>Vishwakarma Institute of Information Technology, Pune</li>
+<li>Symbiosis Institute of Technology, Lavale, Pune</li>
 </ul>
 
 </div>
@@ -140,7 +167,7 @@
       <p>
         Copyright &copy; <span id="copyright-year">2015</span> <a href="http://apache.org">The Apache Software Foundation</a>,
         Licensed under the Apache License, Version 2.0<br>
-        Apache and the Apache feather logo are trademarks of The Apache Software Foundation.<br>
+        Apache and the Apache feather logo are trademarks of The Apache Software Foundation. | <a href="/privacy.html">Privacy Policy</a><br>
         <a class="footer-link-img" href="http://apache.org"><img src="/images/asf_logo.svg" alt="The Apache Software Foundation"></a>
       </p>
     </footer>
@@ -149,6 +176,8 @@
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
+  <script src="js/docs.js"></script>
+
   <script>
     $('#copyright-year').text((new Date()).getFullYear());
   </script>

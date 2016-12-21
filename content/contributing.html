@@ -13,6 +13,16 @@
     <!-- Main Stylesheet -->
     <link href="css/main.css" rel="stylesheet">
 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-85540278-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
   </head>
 
   <body>
@@ -38,32 +48,38 @@
             <a class="nav-link " href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/announcements.html">Announcements</a>
+            <a class="nav-link " href="/docs.html">Documentation</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/community.html">Community</a>
+            <a class="nav-link " href="/powered-by-apex.html">Powered By Apex</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/docs.html">Docs</a>
+            <a class="nav-link " href="/roadmap.html">Roadmap</a>
           </li>
-          <li class="nav-item">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link">Source<b class="caret"></b></a>
-             <ul class="dropdown-menu">
-              <li><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-core.git">Apex Core (ASF)</a></li>
-              <li><a href="https://github.com/apache/apex-core">Apex Core (Github Mirror)</a></li>
-              <li><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-malhar.git">Apex Malhar (ASF)</a></li>
-              <li><a href="https://github.com/apache/apex-malhar">Apex Malhar (Github Mirror)</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link">Apache<b class="caret"></b></a>
-             <ul class="dropdown-menu">
-              <li><a href="http://www.apache.org/foundation/how-it-works.html">Apache Foundation</a></li>
-              <li><a href="http://www.apache.org/licenses/">Apache License</a></li>
-              <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
-              <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
-            </ul>
-          </li>
+
+            <li class="nav-item nav-mouseover">
+              <ul class="dropdown-menu">
+                <li class=""><a href="/community.html#mailing-lists">Mailing Lists</a></li>
+                <li class=""><a href="/community.html#issue-tracking">Issue Tracking</a></li>
+                <li class=""><a href="http://stackoverflow.com/questions/tagged/apache-apex">Stack Overflow</a></li>
+                <li class=""><a href="/community.html#events">Events</a></li>
+                <li class=""><a href="/community.html#contributing">Contributing</a></li>
+                <li class=""><a href="http://www.apache.org/foundation/how-it-works.html">Apache Foundation</a></li>
+              </ul>
+              <a href="/community.html" class="nav-link">Community</a>
+            </li>
+          
+
+            <li class="nav-item nav-mouseover">
+              <ul class="dropdown-menu">
+                <li class=""><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-core.git">Apex Core (ASF)</a></li>
+                <li class=""><a href="https://github.com/apache/apex-core">Apex Core (Github Mirror)</a></li>
+                <li class=""><a href="https://git-wip-us.apache.org/repos/asf?p&#x3D;apex-malhar.git">Apex Malhar (ASF)</a></li>
+                <li class=""><a href="https://github.com/apache/apex-malhar">Apex Malhar (Github Mirror)</a></li>
+              </ul>
+              <a href="https://github.com/apache/apex-core" class="nav-link">Github</a>
+            </li>
+          
           <li class="nav-item">
             <a class="nav-link btn btn-success" href="/downloads.html">Download</a>
           </li>
@@ -87,36 +103,55 @@
 <li>Publishing papers and blogs</li>
 <li>Present at conferences or spread the word in other ways</li>
 </ul>
-<p>People that help with the project in any of the above categories or other ways are contributors. See the <a href="http://www.apache.org/foundation/how-it-works.html#roles">roles</a> as defined by the ASF.</p>
-<h2 id="becoming-a-committer">Becoming a committer</h2>
-<p>Community members that make sustained, welcome contributions to the project may be invited to become a committer. Committers are voted in by the PMC. A committer has a signed Contributor License Agreement (<a href="http://www.apache.org/licenses/icla.txt">CLA</a>) on file and an apache.org address.</p>
-<p>We expect committers to subscribe to the <a href="community.html#mailing-lists">project mailing lists</a>.  </p>
-<p>A committer will be considered “emeritus/inactive” by not contributing in any form to the project for over 1 year. An emeritus committer may request reinstatement of commit access from the PMC. Such reinstatement is subject to lazy consensus of active PMC members.</p>
-<p>The Project Management Committee (<a href="http://www.apache.org/dev/pmc.html">PMC</a>) is responsible for the oversight of the project and it also decides who to add as a PMC member. Existing committers may be invited to become a PMC member after consistent contribution and activity over a period of time and participation in directional and community building discussions.</p>
-<h2 id="code-style">Code Style</h2>
-<p>Apache Apex follows coding style that is closest to K &amp; R style and uses <a href="http://checkstyle.sourceforge.net/">Checkstyle</a> tool to enforce these standards. Travis CI will fail for any pull request that introduces any style violations.</p>
-<p>The checkstyle configuration that Apache Apex projects use is present here : <a href="https://github.com/apache/apex-core/blob/master/codestyle-config/src/main/resources/apex_checks.xml">https://github.com/apache/apex-core/blob/master/codestyle-config/src/main/resources/apex_checks.xml</a></p>
+<p>People that help with the project in any of the above categories or other ways are contributors. See the <a href="http://www.apache.org/foundation/how-it-works.html#roles">roles</a> as defined by the ASF. Community members that make sustained, welcome contributions to the project may be invited to become a <a href="/people.html">committer</a>. </p>
+<h2 id="one-time-setup">One-time Setup</h2>
+<h3 id="jira">JIRA</h3>
+<p>Apache JIRA is used for issue tracking. If you do not already have an Apache JIRA account, sign up <a href="https://issues.apache.org/jira/">here</a>. Note that the user name should have no white spaces or other special characters that complicate auto-completion within JIRA comments etc. </p>
+<p>Please use a single JIRA account only (don&#39;t create multiple with different email addresses) to retain the issue history. Please use a permanent email address, for an existing account it can be changed in the profile. If you absolutely have to change your user name, contact INFRA.</p>
+<p>Apex has 2 JIRA projects:</p>
+<ol>
+<li><a href="https://issues.apache.org/jira/browse/APEXCORE/">APEXCORE</a> for <a href="https://github.com/apache/apex-core">apex-core</a> and <a href="https://github.com/apache/apex-site">apex-site</a></li>
+<li><a href="https://issues.apache.org/jira/browse/APEXMALHAR/">APEXMALHAR</a> for <a href="https://github.com/apache/apex-malhar">apex-malhar</a></li>
+</ol>
+<p>Before working on changes for any of the repositories, please locate an existing JIRA ticket or submit a new one. In order to assign an issue to yourself, you need to be listed as contributor in the JIRA project. PMC members have access to add new contributors, please request to be added through a comment on your candidate ticket or send us an email on the dev@ mailing list.</p>
+<h3 id="github-and-git">Github and git</h3>
+<p>We use GitHub’s pull request functionality to review proposed code changes. If you do not already have a personal GitHub account, sign up <a href="https://github.com/join">here</a>. We recommend that you use the same email address and first/lastname for emails, git and JIRA so that contributions can be better tracked and notifications correlated. It is also recommended that you use an email address that is valid permanently (for example your @gmail.com or @apache.org address). Please also see:</p>
+<ul>
+<li><a href="https://help.github.com/articles/setting-your-email-in-git/">https://help.github.com/articles/setting-your-email-in-git/</a></li>
+<li><a href="https://help.github.com/articles/adding-an-email-address-to-your-github-account/">https://help.github.com/articles/adding-an-email-address-to-your-github-account/</a></li>
+<li><a href="https://help.github.com/articles/keeping-your-email-address-private/">https://help.github.com/articles/keeping-your-email-address-private/</a></li>
+</ul>
+<p>If you are new to git, this <a href="https://try.github.io/">tutorial</a> may be helpful.</p>
+<p>The ASF Apex git repositories have mirror repositories on github which are used to review pull requests and provide a second remote endpoint for the codebase.</p>
+<ol>
+<li>Fork the ASF github mirror: <a href="https://github.com/apache/apex-core">https://github.com/apache/apex-core</a> (or <a href="https://github.com/apache/apex-malhar">https://github.com/apache/apex-malhar</a> or <a href="https://github.com/apache/apex-site">https://github.com/apache/apex-site</a>) </li>
+<li>Clone the <strong>fork</strong> on your local workspace (one time step):<br/>
+<code>git clone https://github.com/{github_username}/apex-core.git</code></li>
+<li>Add the mirror as remote repository, here shown for apex-core:<br/>
+<code>git remote add upstream https://github.com/apache/apex-core</code></li>
+</ol>
+<h3 id="java-development-environment">Java Development Environment</h3>
+<p>For prerequisites and setup instructions see: <a href="http://apex.apache.org/docs/apex/apex_development_setup/">http://apex.apache.org/docs/apex/apex_development_setup/</a></p>
+<p>Apache Apex follows coding style that is closest to K &amp; R style and uses <a href="http://checkstyle.sourceforge.net/">Checkstyle</a> tool to enforce these standards. Apex checkstyle enforces no trailing whitespace. Travis CI will fail for any pull request that introduces any style violations. The checkstyle configuration is <a href="https://github.com/apache/apex-core/blob/master/codestyle-config/src/main/resources/apex_checks.xml">here</a>.</p>
 <p>To make it easier for the users to set up their development environment, settings for the following common IDEs are provided in the Apache Apex Core repository with instructions.</p>
 <ul>
 <li><a href="https://github.com/apache/apex-core/tree/master/misc/ide-templates/intellij">IntelliJ</a></li>
 <li><a href="https://github.com/apache/apex-core/tree/master/misc/ide-templates/eclipse">Eclipse</a></li>
 <li><a href="https://github.com/apache/apex-core/tree/master/misc/ide-templates/netbeans">NetBeans</a></li>
 </ul>
-<h2 id="opening-pull-requests-contributors-">Opening Pull Requests (contributors)</h2>
-<p>The apex-core and apex-malhar repositories both have mirror repositories on github which are used to review pull requests and provide a second remote endpoint for the codebase.</p>
+<h2 id="opening-pull-requests">Opening Pull Requests</h2>
 <ol>
-<li>Create a JIRA (<a href="https://issues.apache.org/jira/browse/APEXCORE/">-core</a>,<a href="https://issues.apache.org/jira/browse/APEXMALHAR/">-malhar</a>) for the work you plan to do (or assign yourself to an existing JIRA ticket)</li>
-<li>Fork the ASF github mirror (one time step):
-<a href="https://github.com/apache/apex-core/">https://github.com/apache/apex-core/</a>  </li>
-<li>Clone the <strong>fork</strong> on your local workspace (one time step):<br><code>git clone https://github.com/{github_username}/apex-core.git</code></li>
-<li>Add <a href="https://github.com/apache/apex-core">apex core</a> as a remote repository (one time step):<br><code>git remote add upstream https://github.com/apache/apex-core</code></li>
-<li>Create a new branch from the <a href="https://github.com/apache/apex-core/tree/master">master</a> branch. <strong>Name your branch with the JIRA number in it, e.g. <code>APEXCORE-123.my-feature</code>.</strong><br><code>git checkout -b APEXCORE-123.my-feature -t upstream/master</code><br>Creating a local branch that tracks a remote makes pull easier (no need to specify the remote branch while pulling). A branch can be made to track a remote branch anytime, not necessarily at its creation by:<br><code>git branch -u upstream/master</code></li>
+<li>Create a new branch from the <code>master</code> branch, <strong>name it with the JIRA number, e.g. <code>APEXCORE-123.my-feature</code></strong>:<br/>
+<code>git checkout -b APEXCORE-123.my-feature -t upstream/master</code><br/>
+Creating a local branch that tracks a remote makes pull easier (no need to specify the remote branch while pulling). A branch can be made to track a remote branch anytime, not necessarily at its creation by:<br/>
+<code>git branch -u upstream/master</code></li>
 <li>When adding new files, please include the Apache v2.0 license header.<ul>
 <li>From the top level directory, run <code>mvn license:check -Dlicense.skip=false</code> to check correct header formatting.</li>
 <li>Run <code>mvn license:format -Dlicense.skip=false</code> to automatically add the header when missing.</li>
 </ul>
 </li>
-<li>Once your feature is complete, submit the pull request on github against <code>master</code>.</li>
+<li>Once your feature is complete, submit the pull request on github against <code>master</code>. <strong>Use the JIRA number (e.g. APEXCORE-123) as prefix in the pull request title</strong>. This will ensure the information is attached to the JIRA ticket automatically. If commits result from running scripts, file formatting or similar, use following attribution:<br/>
+<code>git commit --amend --author &quot;Apex Dev &lt;dev@apex.apache.org&gt;&quot;</code></li>
 <li>If you want specific people to review your pull request, use the <code>@</code> notation in Github comments to mention that user, and request that he/she reviews your changes.</li>
 <li>Check the status of the pull request and ensure the Travis CI build is successful. If not, inspect the linked build log for details.<ul>
 <li>If build fails due to license headers, follow instructions above.</li>
@@ -125,7 +160,8 @@
 </li>
 <li>Add changes after the PR was opened to the same branch, Travis CI will detect changes and build automatically. To force the CI run, close and re-open the PR.</li>
 <li><p>After all review is complete, combine all new commits into one squashed commit except when there are multiple contributors, and include the Jira number in the commit message. There are several ways to squash commits, but <a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Squashing-Commits">here is one explanation from git-scm.com</a> and a simple example is illustrated below:</p>
-<p>If tracking upstream/master then run <code>git rebase -i</code>. Else run <code>git rebase -i upstream/master</code>.<br>This command opens the text editor which lists the multiple commits:</p>
+<p>If tracking upstream/master then run <code>git rebase -i</code>. Else run <code>git rebase -i upstream/master</code>.
+This command opens the text editor which lists the multiple commits:</p>
 <pre><code>pick 67cd79b change1
 pick 6f98905 change2
 
@@ -167,10 +203,12 @@ squash 6f98905 change2
 <li>Travis CI pull request build needs to pass</li>
 <li>Ensure tests are added/modified for new features or fixes</li>
 <li>Ensure appropriate JavaDoc comments have been added</li>
+<li>Nice to have: Ensure the PR is rebased to apache/master to avoid extra merge commits (especially if the contributor is right next to you).</li>
 </ul>
 </li>
-<li>To set up access to the ASF source repository, <a href="https://git-wip-us.apache.org/#committers-getting-started">follow these steps</a>. The ASF master repository is: <code>https://git-wip-us.apache.org/repos/asf/apex-core.git</code></li>
-<li>Use the git command line to pull in the changes from the pull requests. You can refer to the corresponding email that will be automatically sent to the <code>dev@apex.apache.org</code> mailing list to see the exact commands to merge the given pull request.</li>
+<li>To set up access to the ASF source repository, <a href="https://git-wip-us.apache.org/#committers-getting-started">follow these steps</a>. The ASF master repository is:<br/>
+<code>https://git-wip-us.apache.org/repos/asf/apex-core.git</code></li>
+<li>Use the git command line to pull in the changes from the pull requests. You can refer to opened PR notification that was automatically sent to the <code>dev@apex.apache.org</code> mailing list to see the exact merge commands.</li>
 <li>Once done with verification, push the changes to the ASF repository&#39;s <code>master</code> branch. Within a few
 seconds, the changes will propagate back to the github mirror and the pull requests be closed and marked merged automatically.</li>
 <li>The <code>Fix version</code> field on the corresponding JIRA ticket needs to be set and the ticket resolved after pushing the changes.</li>
@@ -185,7 +223,7 @@ seconds, the changes will propagate back to the github mirror and the pull reque
       <p>
         Copyright &copy; <span id="copyright-year">2015</span> <a href="http://apache.org">The Apache Software Foundation</a>,
         Licensed under the Apache License, Version 2.0<br>
-        Apache and the Apache feather logo are trademarks of The Apache Software Foundation.<br>
+        Apache and the Apache feather logo are trademarks of The Apache Software Foundation. | <a href="/privacy.html">Privacy Policy</a><br>
         <a class="footer-link-img" href="http://apache.org"><img src="/images/asf_logo.svg" alt="The Apache Software Foundation"></a>
       </p>
     </footer>
@@ -194,6 +232,8 @@ seconds, the changes will propagate back to the github mirror and the pull reque
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
+  <script src="js/docs.js"></script>
+
   <script>
     $('#copyright-year').text((new Date()).getFullYear());
   </script>
